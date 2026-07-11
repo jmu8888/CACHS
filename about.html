@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>关于我们 – CACHS 大华府社区健康服务中心</title>
+<meta name="description" content="了解CACHS的愿景、宗旨、团队与合作伙伴。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   CACHS — shared site stylesheet
+   ========================================================================== */
+:root{
+  --red:#B3372C;
+  --red-dark:#8C2A21;
+  --teal:#1E4A47;
+  --teal-light:#2B6B66;
+  --gold:#D9A441;
+  --cream:#FAF6EF;
+  --cream-deep:#F1E9DA;
+  --ink:#28221C;
+  --ink-soft:#5B5248;
+  --line:#E4DACB;
+  --radius:14px;
+  --maxw:1180px;
+  font-size:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:"Noto Serif SC","Songti SC",serif;
+  margin:0 0 .5em;
+  line-height:1.3;
+  color:var(--teal);
+}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+button{font-family:inherit;}
+ul{margin:0; padding:0;}
+
+/* ===== Top utility bar ===== */
+.topbar{background:var(--teal); color:#fff; font-size:.82rem;}
+.topbar .wrap{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; padding-top:8px; padding-bottom:8px; gap:6px;}
+.topbar .hotline{font-weight:500;}
+.topbar .hotline a{color:var(--gold); font-weight:700;}
+.topbar .top-links{display:flex; gap:14px; align-items:center;}
+.topbar .top-links a{opacity:.9;}
+.topbar .top-links a:hover{opacity:1; text-decoration:underline;}
+
+/* ===== Header / nav ===== */
+header.site-header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50; box-shadow:0 1px 0 rgba(0,0,0,.02);}
+.header-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 20px; max-width:var(--maxw); margin:0 auto;}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand .mark{width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--red),var(--red-dark)); display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Noto Serif SC",serif; font-weight:900; font-size:1.1rem; flex-shrink:0;}
+.brand .name{font-family:"Noto Serif SC",serif; font-weight:700; color:var(--teal); font-size:1.05rem; line-height:1.2;}
+.brand .name small{display:block; font-size:.68rem; font-weight:400; color:var(--ink-soft); letter-spacing:.02em;}
+
+nav.primary-nav{display:flex; align-items:center; gap:2px;}
+nav.primary-nav ul{list-style:none; display:flex; margin:0; padding:0; gap:2px;}
+nav.primary-nav > ul > li{position:relative;}
+nav.primary-nav > ul > li > a{display:block; padding:10px 14px; font-weight:500; font-size:.95rem; border-radius:8px; color:var(--ink);}
+nav.primary-nav > ul > li > a:hover, nav.primary-nav > ul > li > a.active{background:var(--cream-deep); color:var(--red);}
+nav.primary-nav .submenu{display:none; position:absolute; top:100%; left:0; background:#fff; border:1px solid var(--line); border-radius:10px; padding:6px; min-width:230px; box-shadow:0 12px 24px rgba(0,0,0,.08); z-index:60;}
+nav.primary-nav li:hover > .submenu{display:block;}
+nav.primary-nav .submenu li a{display:block; padding:8px 12px; font-size:.88rem; border-radius:6px; white-space:normal;}
+nav.primary-nav .submenu li a:hover{background:var(--cream-deep); color:var(--red);}
+
+.header-cta{display:flex; align-items:center; gap:10px;}
+.btn{display:inline-block; padding:10px 20px; border-radius:999px; font-weight:700; font-size:.9rem; white-space:nowrap; border:2px solid transparent; transition:transform .15s ease, box-shadow .15s ease; cursor:pointer;}
+.btn-donate{background:var(--red); color:#fff;}
+.btn-donate:hover{background:var(--red-dark); transform:translateY(-1px);}
+.btn-outline{background:transparent; color:var(--teal); border-color:var(--teal);}
+.btn-outline:hover{background:var(--teal); color:#fff;}
+
+.hamburger{display:none; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; border:none; background:transparent; cursor:pointer; border-radius:8px;}
+.hamburger span{display:block; height:3px; border-radius:2px; background:var(--teal); width:26px; transition:transform .25s ease, opacity .25s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+
+/* ===== Ticker ===== */
+.ticker{background:var(--cream-deep); border-bottom:1px solid var(--line); overflow:hidden; white-space:nowrap; position:relative;}
+.ticker .track{display:inline-block; padding:9px 0; animation:scroll 32s linear infinite;}
+.ticker .track span{margin-right:56px; font-size:.88rem; color:var(--ink-soft);}
+.ticker .track span b{color:var(--red); font-weight:700;}
+@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ===== Hero (home page) ===== */
+.hero{background:radial-gradient(circle at 85% 20%, rgba(179,55,44,.10), transparent 55%), radial-gradient(circle at 10% 90%, rgba(30,74,71,.10), transparent 50%), var(--cream); padding:52px 0 60px;}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;}
+.eyebrow{display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); color:var(--red); font-weight:700; font-size:.78rem; padding:6px 14px; border-radius:999px; margin-bottom:16px;}
+.eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--red);}
+.hero h1{font-size:2.3rem; color:var(--teal); margin-bottom:16px;}
+.hero p.lead{color:var(--ink-soft); font-size:1.02rem; margin-bottom:26px; max-width:52ch;}
+.hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+.hero-visual{background:linear-gradient(160deg,var(--teal),var(--teal-light)); border-radius:22px; aspect-ratio:4/3; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;}
+.hero-visual .ring{width:70%; aspect-ratio:1; border-radius:50%; border:2px dashed rgba(255,255,255,.35); display:flex; align-items:center; justify-content:center;}
+.hero-visual .core{width:56%; aspect-ratio:1; border-radius:50%; background:linear-gradient(135deg,var(--gold),#e8c47a); display:flex; align-items:center; justify-content:center; color:var(--teal); font-family:"Noto Serif SC",serif; font-weight:900; font-size:1.15rem; text-align:center; padding:14px; box-shadow:0 20px 40px rgba(0,0,0,.18);}
+
+/* ===== Interior page header banner ===== */
+.page-header{background:linear-gradient(135deg,var(--teal),var(--teal-light)); color:#fff; padding:44px 0 34px;}
+.page-header .eyebrow{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.25); color:var(--gold);}
+.page-header .eyebrow::before{background:var(--gold);}
+.page-header h1{color:#fff; font-size:2rem; margin-bottom:8px;}
+.breadcrumb{font-size:.85rem; opacity:.85; display:flex; gap:8px; align-items:center;}
+.breadcrumb a{opacity:.9;}
+.breadcrumb a:hover{text-decoration:underline;}
+
+/* ===== Quick action cards ===== */
+.quick-actions{padding:0 0 8px; margin-top:-30px; position:relative; z-index:2;}
+.qa-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+.qa-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px 18px; text-align:center; box-shadow:0 10px 26px rgba(40,34,28,.06); transition:transform .2s ease, box-shadow .2s ease;}
+.qa-card:hover{transform:translateY(-4px); box-shadow:0 16px 32px rgba(40,34,28,.1);}
+.qa-card .ico{width:46px; height:46px; margin:0 auto 12px; border-radius:12px; background:var(--cream-deep); display:flex; align-items:center; justify-content:center; color:var(--red); font-size:1.3rem; font-weight:700;}
+.qa-card h3{font-size:1rem; margin-bottom:4px;}
+.qa-card p{font-size:.82rem; color:var(--ink-soft); margin:0;}
+
+/* ===== Section shell ===== */
+section{padding:56px 0;}
+.section-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:28px; gap:16px; flex-wrap:wrap;}
+.section-head h2{font-size:1.7rem; margin:0;}
+.section-head .see-all{font-weight:700; color:var(--red); font-size:.9rem; white-space:nowrap;}
+.section-sub{color:var(--ink-soft); max-width:60ch; margin:-18px 0 26px;}
+
+/* ===== Card grids (news / services / forum / events) ===== */
+.card-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+.card-grid.cols-2{grid-template-columns:repeat(2,1fr);}
+.content-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease;}
+.content-card:hover{transform:translateY(-3px); box-shadow:0 14px 30px rgba(40,34,28,.08);}
+.card-thumb{aspect-ratio:16/9; background:linear-gradient(135deg,var(--cream-deep),#fff); display:flex; align-items:center; justify-content:center; color:var(--line); font-size:.75rem; border-bottom:1px solid var(--line);}
+.card-body{padding:18px; display:flex; flex-direction:column; gap:8px; flex:1;}
+.card-tag{font-size:.76rem; color:var(--red); font-weight:700; letter-spacing:.02em;}
+.content-card h3{font-size:1.02rem; margin:0; color:var(--ink); line-height:1.45;}
+.content-card p.desc{font-size:.88rem; color:var(--ink-soft); margin:0;}
+.content-card .more{margin-top:auto; font-size:.85rem; font-weight:700; color:var(--teal);}
+
+/* ===== Icon feature list (services) ===== */
+.feature-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:26px; display:flex; gap:18px;}
+.feature-card .ico{width:52px; height:52px; flex-shrink:0; border-radius:14px; background:var(--cream-deep); display:flex; align-items:center; justify-content:center; color:var(--red); font-size:1.4rem; font-weight:700;}
+.feature-card h3{font-size:1.08rem; margin-bottom:6px;}
+.feature-card p{font-size:.9rem; color:var(--ink-soft); margin:0;}
+
+/* ===== Team ===== */
+.team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+.team-card{text-align:center; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px 16px;}
+.team-card .avatar{width:84px; height:84px; border-radius:50%; margin:0 auto 12px; background:linear-gradient(135deg,var(--teal),var(--teal-light)); display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Noto Serif SC",serif; font-weight:700;}
+.team-card h4{margin:0 0 2px; font-size:.98rem; color:var(--ink);}
+.team-card span{font-size:.8rem; color:var(--red); font-weight:600;}
+
+/* ===== FAQ (accordion) ===== */
+.faq-item{border:1px solid var(--line); border-radius:12px; margin-bottom:12px; overflow:hidden; background:#fff;}
+.faq-q{width:100%; text-align:left; padding:16px 18px; background:none; border:none; font-weight:700; font-size:.96rem; color:var(--teal); display:flex; justify-content:space-between; align-items:center; cursor:pointer;}
+.faq-q::after{content:"+"; font-size:1.3rem; color:var(--red); flex-shrink:0; margin-left:12px; transition:transform .2s ease;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+.faq-a p{padding:0 18px 16px; margin:0; font-size:.9rem; color:var(--ink-soft);}
+.faq-item.open .faq-a{max-height:400px;}
+
+/* ===== Table (doctor directory) ===== */
+.directory-table{width:100%; border-collapse:collapse; background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:0 6px 18px rgba(40,34,28,.05);}
+.directory-table th, .directory-table td{padding:14px 16px; text-align:left; border-bottom:1px solid var(--line); font-size:.9rem;}
+.directory-table th{background:var(--teal); color:#fff; font-weight:600; font-size:.85rem;}
+.directory-table tr:last-child td{border-bottom:none;}
+.directory-table tr:hover td{background:var(--cream-deep);}
+.table-scroll{overflow-x:auto; border-radius:var(--radius);}
+
+/* ===== Gallery ===== */
+.gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:12px;}
+.gallery-item{aspect-ratio:1; border-radius:10px; background:linear-gradient(135deg,var(--cream-deep),#fff); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:.75rem; overflow:hidden;}
+
+/* ===== Impact band ===== */
+.impact{background:var(--teal); color:#fff;}
+.impact .wrap{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:center;}
+.impact .card{padding:14px;}
+.impact .card b{display:block; font-family:"Noto Serif SC",serif; font-size:2.1rem; color:var(--gold);}
+.impact .card span{font-size:.9rem; opacity:.9;}
+
+/* ===== Partners ===== */
+.partners-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+.partner-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:24px 16px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px;}
+.partner-card .logo-ph{width:100%; height:64px; border-radius:8px; background:var(--cream-deep); display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:.75rem;}
+.partner-card p{margin:0; font-size:.82rem; color:var(--ink-soft);}
+
+/* ===== Donate page ===== */
+.donate-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;}
+.amount-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:18px 0;}
+.amount-btn{padding:14px; border-radius:10px; border:2px solid var(--line); background:#fff; font-weight:700; color:var(--teal); cursor:pointer; text-align:center;}
+.amount-btn:hover, .amount-btn.selected{border-color:var(--red); color:var(--red); background:var(--cream-deep);}
+.info-list{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;}
+.info-list li{display:flex; gap:12px; font-size:.92rem; color:var(--ink-soft);}
+.info-list li b{color:var(--teal); min-width:90px; flex-shrink:0;}
+
+/* ===== Contact page ===== */
+.contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+.form-field{margin-bottom:16px;}
+.form-field label{display:block; font-size:.86rem; font-weight:600; color:var(--teal); margin-bottom:6px;}
+.form-field input, .form-field textarea, .form-field select{width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:.92rem; background:#fff;}
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus{outline:2px solid var(--gold); border-color:var(--teal);}
+.map-ph{aspect-ratio:4/3; background:var(--cream-deep); border:1px solid var(--line); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:.85rem;}
+
+/* ===== Donate CTA band ===== */
+.cta-band{background:linear-gradient(135deg,var(--red),var(--red-dark)); color:#fff; text-align:center; border-radius:24px; margin:0 20px; padding:50px 24px;}
+.cta-band h2{color:#fff; font-size:1.8rem;}
+.cta-band p{color:rgba(255,255,255,.9); max-width:56ch; margin:0 auto 24px;}
+.cta-band .btn-donate{background:#fff; color:var(--red);}
+.cta-band .btn-donate:hover{background:var(--gold); color:var(--teal);}
+
+/* ===== Footer ===== */
+footer{background:var(--ink); color:#e9e3d8; padding:52px 0 20px; margin-top:40px;}
+.footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:36px; margin-bottom:36px;}
+.footer-brand p{color:#b9b0a1; font-size:.88rem; max-width:38ch;}
+footer h4{color:#fff; font-size:.95rem; margin-bottom:14px;}
+footer ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;}
+footer ul a{color:#c9c1b3; font-size:.88rem;}
+footer ul a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1); padding-top:18px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.78rem; color:#9a8f7d;}
+
+/* ===== Mobile nav drawer ===== */
+.nav-scrim{display:none; position:fixed; inset:0; background:rgba(20,15,10,.45); z-index:55;}
+.nav-scrim.show{display:block;}
+
+/* =========================================================
+   TABLET / iPad — <=1024px
+   ========================================================= */
+@media (max-width:1024px){
+  .qa-grid{grid-template-columns:repeat(2,1fr);}
+  .card-grid{grid-template-columns:repeat(2,1fr);}
+  .partners-grid{grid-template-columns:repeat(2,1fr);}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  .hero h1{font-size:2rem;}
+  nav.primary-nav > ul > li > a{padding:10px 10px; font-size:.88rem;}
+}
+
+/* =========================================================
+   TABLET PORTRAIT / large phones — <=880px : nav collapses
+   ========================================================= */
+@media (max-width:880px){
+  .topbar .wrap{justify-content:center; text-align:center;}
+  .header-inner{padding:10px 16px;}
+  .brand .name{font-size:.92rem;}
+  .brand .mark{width:40px; height:40px; font-size:.95rem;}
+  .header-cta .btn-outline{display:none;}
+  .hamburger{display:flex;}
+
+  nav.primary-nav{position:fixed; top:0; right:0; height:100%; width:min(320px,84vw); background:#fff; z-index:60; transform:translateX(100%); transition:transform .3s ease; box-shadow:-8px 0 24px rgba(0,0,0,.15); overflow-y:auto; padding:20px 0;}
+  nav.primary-nav.open{transform:translateX(0);}
+  nav.primary-nav ul{flex-direction:column; width:100%; gap:0;}
+  nav.primary-nav > ul{padding:0 8px;}
+  nav.primary-nav > ul > li{width:100%;}
+  nav.primary-nav > ul > li > a{padding:14px 16px; font-size:1rem; border-radius:8px;}
+  nav.primary-nav .submenu{display:none; position:static; border:none; box-shadow:none; padding:0 0 0 14px; background:var(--cream); border-radius:8px; margin:2px 0 8px;}
+  nav.primary-nav li.open > .submenu{display:block;}
+  nav.primary-nav .nav-donate{margin:14px 16px 0; display:block; text-align:center;}
+
+  .hero-grid{grid-template-columns:1fr; gap:30px;}
+  .hero{padding:36px 0 44px;}
+  .hero h1{font-size:1.8rem;}
+  .hero-visual{max-width:340px; margin:0 auto; aspect-ratio:1/1;}
+  .hero-actions{justify-content:center;}
+  .hero > .wrap{text-align:center;}
+  .hero p.lead{margin-left:auto; margin-right:auto;}
+  .eyebrow{margin-left:auto; margin-right:auto;}
+
+  .impact .wrap{grid-template-columns:1fr; gap:14px;}
+  .footer-grid{grid-template-columns:1fr 1fr; gap:28px;}
+  .footer-brand{grid-column:1/-1;}
+  .cta-band{margin:0 16px; padding:40px 20px;}
+  .donate-grid, .contact-grid{grid-template-columns:1fr; gap:28px;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .page-header h1{font-size:1.6rem;}
+}
+
+/* =========================================================
+   SMARTPHONE — <=560px
+   ========================================================= */
+@media (max-width:560px){
+  :root{font-size:15px;}
+  .topbar{font-size:.74rem;}
+  .topbar .top-links{gap:10px;}
+  .wrap{padding:0 16px;}
+
+  section{padding:40px 0;}
+  .section-head h2{font-size:1.4rem;}
+  .hero h1{font-size:1.55rem;}
+  .hero p.lead{font-size:.95rem;}
+  .hero-actions{flex-direction:column; width:100%;}
+  .hero-actions .btn{width:100%; text-align:center;}
+
+  .qa-grid{grid-template-columns:1fr; gap:12px;}
+  .qa-card{display:flex; align-items:center; gap:14px; text-align:left; padding:16px;}
+  .qa-card .ico{margin:0; flex-shrink:0;}
+
+  .card-grid{grid-template-columns:1fr;}
+  .partners-grid{grid-template-columns:1fr;}
+  .partner-card{flex-direction:row; text-align:left; padding:14px;}
+  .partner-card .logo-ph{width:76px; height:52px; flex-shrink:0;}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .feature-card{flex-direction:column;}
+  .amount-grid{grid-template-columns:repeat(3,1fr);}
+
+  .cta-band{border-radius:18px; margin:0 12px;}
+  .cta-band h2{font-size:1.4rem;}
+
+  .footer-grid{grid-template-columns:1fr; gap:26px;}
+  .footer-bottom{flex-direction:column; text-align:center;}
+  .page-header{padding:32px 0 26px;}
+  .page-header h1{font-size:1.4rem;}
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .ticker .track{animation:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* Visible focus states for accessibility */
+a:focus-visible, button:focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="hotline">中文热线（普通话、广东话、短信）: <a href="tel:2406589228">240-658-9228</a> / <a href="tel:5716685836">571-668-5836</a></div>
+    <div class="top-links"><a href="#">EN</a><a href="#">YouTube</a></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="mark">CA</span>
+      <span class="name">CACHS<small>大华府社区健康服务中心</small></span>
+    </a>
+    <nav class="primary-nav" id="primaryNav">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li>
+          <a href="about.html">关于我们 ▾</a>
+          <ul class="submenu">
+            <li><a href="about.html#mission">愿景和宗旨</a></li>
+            <li><a href="about.html#team">我们的团队</a></li>
+            <li><a href="about.html#partners">合作伙伴</a></li>
+            <li><a href="about.html#faq">常见问题</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="services.html">我们的服务 ▾</a>
+          <ul class="submenu">
+            <li><a href="services.html#hotline">中文帮助热线</a></li>
+            <li><a href="services.html#senior">老年健康服务</a></li>
+            <li><a href="services.html#mental">心理健康服务</a></li>
+            <li><a href="services.html#clinics">公益体检及义诊</a></li>
+            <li><a href="services.html#flu">免费流感疫苗接种</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="health-forum.html">健康讯息 ▾</a>
+          <ul class="submenu">
+            <li><a href="health-forum.html#directory">华语医生列表</a></li>
+            <li><a href="health-forum.html#lectures">公益讲座</a></li>
+            <li><a href="health-forum.html#topics">健康专题</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="news.html">活动及新闻 ▾</a>
+          <ul class="submenu">
+            <li><a href="events.html">活动</a></li>
+            <li><a href="news.html">新闻</a></li>
+            <li><a href="gallery.html">相册</a></li>
+          </ul>
+        </li>
+        <li><a href="donate.html">捐助</a></li>
+      </ul>
+      <a class="btn btn-donate nav-donate" href="donate.html">立即捐款</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-outline" href="contact.html">联系我们</a>
+      <a class="btn btn-donate" href="donate.html">DONATE NOW</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">首页</a> / <span>关于我们</span></div>
+    <span class="eyebrow">ABOUT CACHS</span>
+    <h1>关于我们</h1>
+  </div>
+</div>
+
+<section id="mission">
+  <div class="wrap">
+    <div class="section-head"><h2>我们的愿景和宗旨</h2></div>
+    <p class="section-sub" style="margin-top:0;">大华府社区健康服务中心（CACHS）成立的宗旨是增强大华府地区华人社区，尤其是低收入无医保群体，对健康资源的意识和可及性。我们通过慈善及公益性社区健康服务，包括免费健康检查、义诊咨询、心理健康支持及流感疫苗接种等项目，帮助社区成员获得应有的医疗照护。</p>
+    <div class="card-grid cols-2" style="margin-top:30px;">
+      <div class="feature-card">
+        <div class="ico">愿</div>
+        <div><h3>我们的愿景</h3><p>建立一个人人都能获得健康信息与医疗资源、没有语言与经济障碍的华人社区。</p></div>
+      </div>
+      <div class="feature-card">
+        <div class="ico">宗</div>
+        <div><h3>我们的宗旨</h3><p>以慈善公益服务为核心，联合政府部门与社区伙伴，为弱势群体提供免费、易得的健康服务。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="section-head"><h2>我们的团队</h2></div>
+    <p class="section-sub" style="margin-top:0;">CACHS由一群热心公益的医疗专业人士、社工与义工组成，长期扎根社区第一线。</p>
+    <div class="team-grid" style="margin-top:30px;">
+      <div class="team-card"><div class="avatar">王</div><h4>王女士</h4><span>执行主任</span></div>
+      <div class="team-card"><div class="avatar">李</div><h4>李医生</h4><span>医疗顾问</span></div>
+      <div class="team-card"><div class="avatar">陈</div><h4>陈先生</h4><span>社区外展协调</span></div>
+      <div class="team-card"><div class="avatar">张</div><h4>张女士</h4><span>义工团队负责人</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="section-head"><h2>官方合作伙伴</h2></div>
+    <div class="partners-grid">
+      <div class="partner-card"><div class="logo-ph">FCHD</div><p>Fairfax County Health Department</p></div>
+      <div class="partner-card"><div class="logo-ph">MCDHHS</div><p>Montgomery County Department of Health and Human Services</p></div>
+      <div class="partner-card"><div class="logo-ph">HCHD</div><p>Howard County Health Department</p></div>
+      <div class="partner-card"><div class="logo-ph">AAHI</div><p>Asian American Health Initiative</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--cream-deep);">
+  <div class="wrap" style="max-width:800px;">
+    <div class="section-head"><h2>常见问题</h2></div>
+    <div class="faq-item open">
+      <button class="faq-q">CACHS的服务是否收费？</button>
+      <div class="faq-a"><p>不收费。CACHS的大部分社区健康服务，包括健康检查、义诊咨询和流感疫苗接种，均为免费提供，尤其面向低收入无医保人群。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">我需要有医疗保险才能参加吗？</button>
+      <div class="faq-a"><p>不需要。我们的服务主要面向无医保或医保不足的社区成员，欢迎所有有需要的居民参加。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">如何成为CACHS的义工？</button>
+      <div class="faq-a"><p>您可以通过联系我们页面提交申请，或拨打中文热线 240-658-9228 咨询义工机会。</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">CACHS服务哪些地区？</button>
+      <div class="faq-a"><p>目前主要服务维州费郡、马州哈维郡和蒙郡等大华府地区。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="donate-cta">
+  <div class="cta-band">
+    <h2>加入我们，共建健康社区</h2>
+    <p>无论是捐款还是成为义工，您的每一份支持都能帮助更多社区成员获得健康服务。</p>
+    <a class="btn btn-donate" href="donate.html">立即捐款</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><h4>CACHS</h4><p>增强健康意识和服务的可及性，打造更健康的社区。</p></div>
+      <div><h4>快速链接</h4><ul>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="services.html">我们的服务</a></li>
+        <li><a href="donate.html">捐助</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+        <li><a href="health-forum.html">健康讲台</a></li>
+        <li><a href="news.html">新闻</a></li>
+      </ul></div>
+      <div><h4>联系我们</h4><ul>
+        <li>电子邮件：<a href="mailto:contact@cachs.org">contact@cachs.org</a></li>
+        <li>地址：9841 Washingtonian Blvd, Suite 200-1004, Gaithersburg, MD 20878</li>
+        <li>电话（中文）：<a href="tel:2408856138">240-885-6138</a></li>
+        <li>中文热线：240-658-9228, 571-668-5836</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2023 - 2026 CACHS. All Rights Reserved.</span><span>Chinese American Community Health Services</span></div>
+  </div>
+</footer>
+
+<script>
+// ==========================================================================
+// CACHS — shared site script (mobile nav, FAQ accordion, donate amounts)
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---- Mobile nav drawer ---- */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const primaryNav = document.getElementById('primaryNav');
+  const navScrim = document.getElementById('navScrim');
+
+  if (hamburgerBtn && primaryNav && navScrim) {
+    function closeNav(){
+      primaryNav.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded','false');
+      navScrim.classList.remove('show');
+    }
+    function toggleNav(){
+      const isOpen = primaryNav.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navScrim.classList.toggle('show', isOpen);
+    }
+    hamburgerBtn.addEventListener('click', toggleNav);
+    navScrim.addEventListener('click', closeNav);
+
+    // Tapping a top-level link that has a submenu toggles it on mobile instead of navigating
+    document.querySelectorAll('.primary-nav > ul > li').forEach(li => {
+      const link = li.querySelector(':scope > a');
+      const submenu = li.querySelector(':scope > .submenu');
+      if(!submenu || !link) return;
+      link.addEventListener('click', (e) => {
+        if(window.innerWidth <= 880){
+          e.preventDefault();
+          li.classList.toggle('open');
+        }
+      });
+    });
+
+    document.querySelectorAll('.primary-nav .submenu a, .primary-nav .nav-donate').forEach(a=>{
+      a.addEventListener('click', closeNav);
+    });
+    window.addEventListener('resize', ()=>{ if(window.innerWidth > 880) closeNav(); });
+  }
+
+  /* ---- FAQ accordion ---- */
+  document.querySelectorAll('.faq-item .faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ---- Donate amount picker ---- */
+  const amountBtns = document.querySelectorAll('.amount-btn');
+  const customAmount = document.getElementById('customAmount');
+  amountBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      amountBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      if(customAmount) customAmount.value = btn.dataset.amount || '';
+    });
+  });
+
+  /* ---- Mark active nav link based on current page ---- */
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.primary-nav a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === currentPage) a.classList.add('active');
+  });
+
+});
+
+</script>
+</body>
+</html>
